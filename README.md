@@ -21,5 +21,17 @@ Export-PfxCertificate -Cert $cert -FilePath "C:\savepath\YourCertificate.pfx" -P
 ```
 
 
-1. Download `Windows SDK` from [Microsoft web Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/).
-2. 
+ after all, Download `Windows SDK` from [Microsoft web Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/).
+
+install it and uncheck all of them except the `windows SDK siging Tools for Desktop`
+![Screenshot 2024-12-29 180758](https://github.com/user-attachments/assets/e6102cdf-c6a5-4188-9a35-a4ecbe0133eb)
+
+navigate into this dirctory:
+```Powershell
+cd C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64
+```
+```Powershell
+signtool sign /f "C:\path\to\YourCertificate.pfx" /p "12345" /fd SHA256 /t http://timestamp.digicert.com "E:\path\To\yourexefile"
+```
+
+
